@@ -1,0 +1,25 @@
+-----> In fast api when we when we define a response model class for an endpoint using response_model class . it is used for two purposes
+
+1. Validation
+---> the response data returned from the endpoint is validated against the specified pydantic model.so that data adhre to the specified structure and type
+
+2. for documentation purpose it is also required
+
+
+Authentication------------>
+1. Token based authentication:- in this a token is generated and sent to a client after a successful login. the client includes this token in headers
+ of subsequent request to authenticate itself. tokens are generally stateless meaning server does not need to store any information about the authenticated user on its side.
+this is scalable as server does not need to maintain session state.each server indenpendently verify tokens.token are stored either in a cookie or in a authorizatoin header of http requests.
+
+
+2. session authentication:- a session is established on the serevr after a successful login. the session information is stored in session identifier which sent to the client by server.
+the client includes this session identifier in subsequent request to authenticate itself. sessions are stateful means server stores information about authenticated user on its side.
+the session identifier is used to look up for the user on the server which is sent by the client.session identifier is usually stored in cookie on client side but the actual session data is stored on server.
+
+
+
+JWT Token ------------------>
+jwt or json web token. it is a string with three parts.
+first is header ----> header consists of two parts first is type of token and second is signing algorithm being used.
+second is payload -------> it countains the data about the user e.g user identity , user role
+third is signature--------> the signature is used to verify that sender of jwt is who says it and sender of message is
